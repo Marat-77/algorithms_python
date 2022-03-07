@@ -1,0 +1,11 @@
+# MZ add * in this file:
+.idea
+.gitignore
+venv
+mzdraft_*
+draft_*
+# Windows shortcuts
+*.lnk
+# YAML
+*.yaml
+*.yml
