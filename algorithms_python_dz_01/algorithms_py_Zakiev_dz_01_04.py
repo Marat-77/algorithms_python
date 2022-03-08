@@ -41,6 +41,9 @@ def generate_rus_symbol(rus_a, rus_b):
     print('random generator russian symbol')
     rus_a = ord(rus_a.lower())
     rus_b = ord(rus_b.lower())
+    if rus_a > rus_b:
+        rus_a, rus_b = rus_b, rus_a
+
     if rus_a in range(1072, 1077):
         if rus_b in range(1072, 1077):
             print(random.randint(rus_a, rus_b))  # -------------------------
