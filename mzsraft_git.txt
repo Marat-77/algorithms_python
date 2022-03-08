@@ -1,0 +1,21 @@
+
+07:02:42.872: [algorithms_python] git -c credential.helper= -c core.quotepath=false -c log.showSignature=false add --ignore-errors -A -f -- .gitignore algorithms_python_dz_01/algorithms_py_Zakiev_dz_01_04.py
+07:02:43.151: [algorithms_python] git -c credential.helper= -c core.quotepath=false -c log.showSignature=false commit -F C:\Users\user1\AppData\Local\Temp\git-commit-msg-.txt --amend --
+[algorithms_python_dz_01 e7af82c] Algorithms and data structures in Python Алгоритмы и структуры данных на Python. Базовый курс Урок 1. Введение в алгоритмизацию и реализация простых алгоритмов на Python Практическое задание
+ Date: Mon Mar 7 21:02:09 2022 +0500
+ 6 files changed, 308 insertions(+), 1 deletion(-)
+ create mode 100644 .gitignore
+ create mode 100644 algorithms_python_dz_01/algorithms_py_Zakiev_dz_01_01.py
+ create mode 100644 algorithms_python_dz_01/algorithms_py_Zakiev_dz_01_02.py
+ create mode 100644 algorithms_python_dz_01/algorithms_py_Zakiev_dz_01_03.py
+ create mode 100644 algorithms_python_dz_01/algorithms_py_Zakiev_dz_01_04.py
+07:03:18.982: [algorithms_python] git -c credential.helper= -c core.quotepath=false -c log.showSignature=false push --progress --porcelain origin refs/heads/algorithms_python_dz_01:algorithms_python_dz_01
+error: failed to push some refs to 'github.com:/Marat-77/algorithms_python.git'
+To github.com:/Marat-77/algorithms_python.git
+!	refs/heads/algorithms_python_dz_01:refs/heads/algorithms_python_dz_01	[rejected] (non-fast-forward)
+hint: Updates were rejected because the tip of your current branch is behind
+Done
+hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
