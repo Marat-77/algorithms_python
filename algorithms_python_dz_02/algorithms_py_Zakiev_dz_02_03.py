@@ -14,7 +14,6 @@ def input_num():
 
 def main():
     number = input_num()
-    print(number)
     if number is False:
         print('Необходимо ввести натуральное число!')
     else:
