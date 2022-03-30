@@ -27,7 +27,8 @@ def main():
     print('В массиве найти максимальный отрицательный элемент. Вывести на экран его значение и позицию в массиве.')
     print('Исходный массив:')
     print(m_array)
-    print(f'Максимальный отрицательный элемент: {(max_negative(m_array))[0]}, его индекс: {(max_negative(m_array))[1]}')
+    min_negative_num, index_min_negative_num = max_negative(m_array)
+    print(f'Максимальный отрицательный элемент: {min_negative_num}, его индекс: {index_min_negative_num}')
 
 
 if __name__ == '__main__':

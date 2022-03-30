@@ -30,8 +30,9 @@ def main():
           'Сами минимальный и максимальный элементы в сумму не включать.')
     print('Исходный массив:')
     print(m_array)
-    print(f'Между минимальным значением ({(sum_elements(m_array))[0]}) и максимальным значением'
-          f' ({(sum_elements(m_array))[1]}) сумма элементов равна: {(sum_elements(m_array))[2]}')
+    min_el, max_el, sum_between = sum_elements(m_array)
+    print(f'Между минимальным значением ({min_el}) и максимальным значением'
+          f' ({max_el}) сумма элементов равна: {sum_between}')
 
 
 if __name__ == '__main__':
