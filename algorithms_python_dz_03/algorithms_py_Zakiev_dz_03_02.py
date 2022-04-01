@@ -15,7 +15,7 @@ def store_indexes(input_array):
 def main():
     input_array = (8, 3, 15, 6, 4, 2)
     print('Входящий массив: ', input_array)
-    print('Массив из четных элементов входящего массива: ', store_indexes(input_array))
+    print('Массив из индексов четных элементов входящего массива: ', store_indexes(input_array))
 
 
 if __name__ == '__main__':

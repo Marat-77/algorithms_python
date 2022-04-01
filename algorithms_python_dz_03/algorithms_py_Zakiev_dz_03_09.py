@@ -18,14 +18,14 @@ def create_random_array(n, m, max_range=10, min_range=0):
 
 # создание пустой матрицы N x M
 def create_empty_array(n, m):
-    output_array = []
+    output_empty_array = []
     for i in range(n):
         row_list = []
         for j in range(m):
             x = 0
             row_list.append(x)
-        output_array.append(row_list)
-    return output_array
+        output_empty_array.append(row_list)
+    return output_empty_array
 
 
 def max_num_column(input_array):
