@@ -7,6 +7,58 @@
 # чья прибыль выше среднего и отдельно вывести наименования предприятий,
 # чья прибыль ниже среднего.
 
+# O(n)
+#  10 000   =>   2 сек.
+# 100 000   =>  27 сек.
+
+import random
+import time
+
+
+def timetest():
+    # print()
+    n_companies = 100000
+    max_pr = 1000
+    dict_companies = {}
+    sum_profits = 0
+    for i in range(n_companies):
+        dict_i = {}
+        # name = ''
+        name = 'company_' + str(i)
+        # print(name)
+        profit_lst = [0] * 5
+        # 4 элемента - прибыль по кварталам
+        # 5-й элемент - годовая прибыль
+        for j in range(4):
+            profit_lst[j] = random.randrange(max_pr)
+            # profit_lst[j] = int(input(': '))
+        profit_lst[-1] = sum(profit_lst[:-1])
+        # print(profit_lst)
+        dict_i[name] = profit_lst
+        # print(dict_i)
+        for val in dict_i.values():
+            sum_profits += val[-1]
+        dict_companies.update(dict_i)
+    average = sum_profits / n_companies
+    low_profit = []
+    high_profit = []
+
+    # *********************************************************************
+    # проверка скорости фильтрации:
+    start_time = time.time_ns()
+    for key in dict_companies:
+        if dict_companies[key][-1] < average:
+            low_profit.append(key)
+        else:
+            high_profit.append(key)
+
+    res_time = time.time_ns() - start_time
+
+    print('time (ms):', res_time/1000)
+    # *********************************************************************
+    # print('\nГодовая прибыль выше средней у компаний:\n', *high_profit)
+    # print('Годовая прибыль ниже средней у компаний:\n', *low_profit)
+
 
 def main():
     n_companies = int(input('Введите количество компаний: '))
@@ -48,4 +100,5 @@ def main():
 
 if __name__ == '__main__':
     main()
+    # timetest()
 #
