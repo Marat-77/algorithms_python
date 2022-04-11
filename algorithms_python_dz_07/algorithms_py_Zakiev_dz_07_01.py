@@ -147,7 +147,7 @@ def shell_sort(input_list: list) -> list:
 
 
 # метод .sort()
-@time_of_func
+# @time_of_func
 def method_sort(input_list):
     input_list.sort(reverse=True)
     return input_list
