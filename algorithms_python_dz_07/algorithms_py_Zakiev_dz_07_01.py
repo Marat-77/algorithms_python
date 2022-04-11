@@ -27,14 +27,14 @@ def time_of_func(func):
 # @time_of_func
 def bubble_sort(input_list: list) -> list:
     """
-    Функция сортирует входной список методом "пузырька" и выдаёт отсортированный список
+    Функция сортирует по убыванию входной список методом "пузырька" и выдаёт отсортированный список
     :param input_list: list
     :return: list
     """
     swapped = False
     for i in range(len(input_list) - 1, 0, -1):
         for j in range(i):
-            if input_list[j] > input_list[j + 1]:
+            if input_list[j] < input_list[j + 1]:
                 input_list[j], input_list[j + 1] = input_list[j + 1], input_list[j]
                 swapped = True
         if swapped:
@@ -65,20 +65,20 @@ def my_bubble_sort(input_list: list) -> list:
             negative_list.append(i)
         else:
             positive_list.append(i)
-    return bubble_sort(negative_list) + bubble_sort(positive_list)
+    return bubble_sort(positive_list) + bubble_sort(negative_list)
 
 
 # @time_of_func
 def insert_sort(input_list: list) -> list:
     """
-    Функция сортирует входной список по алгоритму сортировки вставками и выдаёт отсортированный список.
+    Функция сортирует по убыванию входной список по алгоритму сортировки вставками и выдаёт отсортированный список.
     :param input_list: list
     :return: list
     """
     for i in range(1, len(input_list)):
         k = input_list[i]
         j = i - 1
-        while input_list[j] > k and j >= 0:
+        while input_list[j] < k and j >= 0:
             input_list[j + 1] = input_list[j]
             j -= 1
         input_list[j + 1] = k
@@ -88,14 +88,14 @@ def insert_sort(input_list: list) -> list:
 # @time_of_func
 def selection_sort(input_list: list) -> list:
     """
-    Функция сортирует входной список по алгоритму сортировки выбором и выдаёт отсортированный список.
+    Функция сортирует по убыванию входной список по алгоритму сортировки выбором и выдаёт отсортированный список.
     :param input_list: list
     :return: list
     """
     for i in range(len(input_list) - 1):
         min_idx = i
         for j in range(i+1, len(input_list)):
-            if input_list[j] < input_list[min_idx]:
+            if input_list[j] > input_list[min_idx]:
                 min_idx = j
         input_list[i], input_list[min_idx] = input_list[min_idx], input_list[i]
     return input_list
@@ -104,7 +104,7 @@ def selection_sort(input_list: list) -> list:
 # алгоритм быстрой сортировки
 def quick_sort(input_list: list) -> list:
     """
-    Функция сортирует входной список по алгоритму быстрой сортировки и выдаёт отсортированный список.
+    Функция сортирует по убыванию входной список по алгоритму быстрой сортировки и выдаёт отсортированный список.
     :param input_list: list
     :return: list
     """
@@ -115,7 +115,7 @@ def quick_sort(input_list: list) -> list:
     for i in input_list:
         if i == pivot:
             equal_lst.append(i)
-        elif i > pivot:
+        elif i < pivot:
             right_lst.append(i)
         else:
             left_lst.append(i)
@@ -126,7 +126,7 @@ def quick_sort(input_list: list) -> list:
 # @time_of_func
 def shell_sort(input_list: list) -> list:
     """
-    Функция сортирует входной список по алгоритму сортировки Шелла и выдаёт отсортированный список.
+    Функция сортирует по убыванию входной список по алгоритму сортировки Шелла и выдаёт отсортированный список.
     :param input_list: list
     :return: list
     """
@@ -137,7 +137,7 @@ def shell_sort(input_list: list) -> list:
         for i in range(interval, n):
             temp = input_list[i]
             j = i
-            while j >= interval and input_list[j - interval] > temp:
+            while j >= interval and input_list[j - interval] < temp:
                 input_list[j] = input_list[j - interval]
                 j -= interval
             input_list[j] = temp
@@ -147,15 +147,16 @@ def shell_sort(input_list: list) -> list:
 
 
 # метод .sort()
-# @time_of_func
+@time_of_func
 def method_sort(input_list):
-    return input_list.sort()
+    input_list.sort(reverse=True)
+    return input_list
 
 
 # функция sorted()
 # @time_of_func
 def func_sorted(input_list):
-    return sorted(input_list)
+    return sorted(input_list, reverse=True)
 
 
 def memory_test(temps):
@@ -174,12 +175,12 @@ def memory_test(temps):
 
 
 def main():
-    n = 100
+    n = 10
     print('n=', n)
     temps = [random.randrange(-100, 100) for _ in range(n)]
     print('Исходный массив:\n', temps)
-    print('\nОтсортированный список (bubble_sort):')
-    print(bubble_sort(temps))
+    # print('\nОтсортированный список (bubble_sort):')
+    # print(bubble_sort(temps))
     print('\nОтсортированный список (my_bubble_sort):')
     print(my_bubble_sort(temps))
 
@@ -200,7 +201,7 @@ def main():
     #
     # shell_sort(temps)  # 100: 0 ms; 1000: 2 ms; 10000: 32 ms; 100000: 501 ms; 1000000: 5.7 s
 
-    # method_sort(temps)  # 10000: 0.0 ms; 100000: 13 ms; 1000000: 123 ms; 10000000: 1234 ms
+    # method_sort(temps)  # 10000: 1.0 ms; 100000: 13 ms; 1000000: 123 ms; 10000000: 1258 ms
     # func_sorted(temps)  # 10000: 1.0 ms; 100000: 2 ms; 1000000: 33 ms; 10000000: 362 ms
     # ******************************************************************************************
 
@@ -217,7 +218,7 @@ if __name__ == '__main__':
 # my_bubble_sort   0ms   35ms  3.7s     -       -
 # insert_sort      0ms   37ms  3.5s     -       -
 # selection_sort   0ms   33ms  3.2s     -       -
-# quick_sort       0ms   0ms      1ms   101ms    1.2s
+# quick_sort       0ms   0ms      1ms   101ms    1.3s
 # shell_sort       0ms   2ms     32ms   501ms    5.7s
 # --------------------------------------------------------------------
 # method_sort      0ms   0ms      0ms    13ms      123ms    1.2s
